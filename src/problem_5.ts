@@ -11,41 +11,41 @@
   }
 
   class GenericRepository<T extends { id: number }> implements Repository<T> {
-    private items: T[];
+    private _items: T[];
 
     constructor() {
-      this.items = [];
+      this._items = [];
     }
 
     create(item: T): void {
-      this.items.push(item);
+      this._items.push(item);
     }
 
     getAll(): T[] {
-      return this.items;
+      return this._items;
     }
 
     getById(id: number): T | undefined {
-      return this.items.find((item: T) => item.id === id);
+      return this._items.find((item: T) => item.id === id);
     }
 
     update(item: T): void {
-      const index = this.items.findIndex(
+      const index = this._items.findIndex(
         (existingItem: T) => existingItem.id === item.id
       );
 
       if (index !== -1) {
-        this.items[index] = item;
+        this._items[index] = item;
       }
     }
 
     delete(id: number): void {
-      const index = this.items.findIndex(
+      const index = this._items.findIndex(
         (existingItem: T) => existingItem.id === id
       );
 
       if (index !== -1) {
-        this.items.splice(index, 1);
+        this._items.splice(index, 1);
       }
     }
   }
