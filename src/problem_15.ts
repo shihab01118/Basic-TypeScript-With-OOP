@@ -13,4 +13,12 @@
 
     return filteredArray;
   };
+
+  const numberArray = [1, 2, 3, 4, 5];
+  const evenNumbers = filterArray(numberArray, (num) => num % 2 === 0);
+  console.log(evenNumbers); // Output: [2, 4]
+
+  const names = ["Alice", "Bob", "Charlie", "Dave"];
+  const longNames = filterArray(names, (name) => name.length > 4);
+  console.log(longNames); // Output: ['Alice', 'Charlie']
 }
